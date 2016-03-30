@@ -1,0 +1,52 @@
+<%= form_for @assignment do |f| %>
+<table>
+  <tr>
+    <th><%= f.label(:title) %></th>
+    <td><%= f.text_field(:title) %></td><br>
+  </tr>
+  <tr>
+    <th><%= f.label(:content) %></th>
+    <td><%= f.text_area(:content) %></td><br>
+  </tr>
+  <tr>
+    <th><%= f.label(:due_date) %></th>
+    <td><%= f.text_field(:due_date, id: "datepicker") %></td><br>
+  </tr>
+  <tr>
+    <th><%= f.label(:attachment) %></th>
+    <td><%= f.file_field(:attachment) %></td><br>
+  </tr>
+  <!--tr>
+      <th><%#= f.label(:user_id) %></th>
+      <td><%#= f.select(:user_id, @users.map {|s| [s.name, s.id] }) %></td><br>
+  </tr-->
+  <tr>
+    <th>Choose classes to assign: </th>
+  </tr>
+  <%= f.collection_check_boxes :classroom_ids, Classroom.all, :id, :period do |f| %>
+
+  <tr>
+    <td><%= f.check_box %>
+       <%= f.label %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <td>
+      <%= f.submit("Create Assignment", class: 'btn btn-inverse') %>
+    </td>
+  </tr>
+
+
+
+  <!--tr>
+    <th>Assign to only these users: </th>
+    <%#= f.collection_check_boxes :user_ids, User.all, :id, :name do |f| %>
+    <td><%#= f.check_box %>
+       <%#= f.label %></td-->
+    <%# end %>
+  <!--/tr-->
+
+
+
+</table>
+<% end %>

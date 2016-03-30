@@ -1,0 +1,29 @@
+<%= form_for @classroom do |f| %>
+
+<table>
+  <tr>
+
+    <td><%= f.text_field(:period, placeholder: "Enter class name...") %></td>
+  </tr>
+
+  <tr>
+    <th>
+      Add students to class:
+    </th>
+  </tr>
+  <%= f.collection_check_boxes :user_ids, User.all, :id, :name do |f| %>
+  <tr>
+    <td><%= f.check_box %>
+  <%= f.label %></td>
+      <% end %>
+
+  </tr>
+  <tr>
+    <td>
+      <%= f.submit('Create Classroom', class: 'btn btn-inverse') %>
+    </td>
+  </tr>
+
+
+</table>
+<% end %>

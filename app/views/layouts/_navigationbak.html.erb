@@ -1,0 +1,18 @@
+
+
+
+<nav class="navbar navbar-inverse navbar-top">
+  <% if logged_in? %>
+
+    <% if user_admin? %>
+      <%= link_to_unless_current 'Assignments', assignments_path %>
+      <%= link_to_unless_current 'Students', users_path %>
+      <%= link_to_unless_current 'Classes', classrooms_path %>
+
+    <% else %>
+      <%= link_to_unless_current 'Assignments', user_assignments_path(current_user) %>
+      <%= link_to_unless_current 'Classes', user_classrooms_path(current_user) %>
+    <% end %>
+  <%= link_to "Logout", access_logout_path %>
+  <% end %>
+</nav>

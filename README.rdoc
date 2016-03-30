@@ -1,0 +1,2 @@
+Notes. 
+3-22-16  Need to create habtm for users and assignments

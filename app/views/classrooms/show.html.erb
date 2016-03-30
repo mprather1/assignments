@@ -1,0 +1,27 @@
+<strong>Class Period: </strong><%= @classroom.period %>
+<h2>Students</h2>
+<% @classroom.users.each do |f| %>
+
+  <table>
+    <tr>
+      <th>&nbsp;</th>
+      <td><%= link_to f.name, user_path(f) %></td>
+    </tr>
+  </table>
+<% end %>
+
+<h2>Assignments</h2>
+  <table>
+    <tr>
+      <th>Assignments</th>
+      <th>Description</th>
+      <th>Due Date</th>
+    </tr>
+    <% @classroom.assignments.each do |f| %>
+    <tr>
+      <td><%= link_to f.title, assignment_path(f) %></td>
+      <td><%= f.content %></td>
+      <td><%= f.due_date %></td>
+    </tr>
+    <% end %>
+  </table>

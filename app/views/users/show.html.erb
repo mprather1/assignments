@@ -1,0 +1,28 @@
+<strong><%= @user.name %></strong><br>
+<strong>Assignments</strong><br>
+<hr>
+
+
+<table>
+  <% @user.classrooms.each do |classroom| %>
+    <tr>
+      <th>
+        <%= link_to classroom.period, classroom_path(classroom) %>
+
+      </th>
+    </tr>
+
+
+
+    
+      <tr>
+      <% classroom.assignments.each do |assignment| %>
+        <td>
+          <%= link_to assignment.title, assignment_path(assignment) %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+
+
+</table>

@@ -1,0 +1,6 @@
+<h1>Students</h1>
+<%= link_to "New Student", new_user_path %><br>
+<hr>
+<% @users.each do |f| %>
+  <%= link_to f.name, user_path(f) %><br>
+<% end %>

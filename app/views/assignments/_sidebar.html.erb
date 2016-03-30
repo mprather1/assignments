@@ -1,0 +1,15 @@
+
+
+
+
+<% if user_admin? %>
+<li class="sidebar-brand"><%= link_to "New Assignment", new_assignment_path%></li>
+<% else %>
+  <li class="sidebar-brand">
+    Assignments
+  </li>
+<% end %>
+<% @assignments.each do |f| %>
+  <li><%= link_to( f.title, assignment_path(f), remote: true) %></li>
+  <li><strong>Due Date:</strong><%= f.due_date %></li>
+  <% end %>

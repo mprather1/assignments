@@ -1,0 +1,14 @@
+
+
+
+  <% if user_admin? %>
+    <li class="sidebar-brand"><%= link_to "New Class", new_classroom_path, remote: true %></li>
+  <% else %>
+    <li class="sidebar-brand">
+      Classes
+    </li>
+  <% end %>
+
+  <% @classrooms.each do |f| %>
+  <li><%= link_to f.period, classroom_path(f), remote: true %></li>
+  <% end %>

@@ -1,0 +1,28 @@
+<h2><%= @classroom.period %></h2>
+
+
+
+
+
+<% @classroom.assignments.each do |f| %>
+
+
+      <li><%= link_to f.title, assignment_path(f), remote: true %></li>
+      <li><strong>Due: </strong><%= f.due_date %></li>
+
+
+
+
+<% end %>
+<% if user_admin? %>
+  <h2>Students</h2>
+  <% @classroom.users.each do |f| %>
+
+    <table>
+      <tr>
+        <th>&nbsp;</th>
+        <td><%= link_to f.name, user_path(f) %></td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
